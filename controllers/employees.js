@@ -1,12 +1,12 @@
-const getEmployees = () => {
+const getEmployees = (req, res) => {
   res.send("getting employees...")
 }  
 
-const getEmployeesById = () => {
+const getEmployeesById = (req, res) => {
     res.send("getting employees...")
 }
 
-const getEmployeesByFirstName = () => {
+const getEmployeesByFirstName = (req, res) => {
     res.send("getting employees...")
 }
 
