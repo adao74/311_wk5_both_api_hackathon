@@ -1,9 +1,14 @@
-import pool from 'mysql/connection'
-import mysql from 'mysql'
+const pool = require('../mysql/connection.js')
+const mysql = require('mysql')
+
+
+console.log(process.env.HOST, "asdfadsf")
 
 const getEmployees = (req, res) => {
 
   pool.query("SELECT * FROM employees LIMIT 50", (err, results) => {
+    console.log(results)
+    if (err) console.log(err)
     return res.json(results)
   })
 
@@ -23,7 +28,7 @@ const getEmployeesById = (req, res) => {
 const getEmployeesByFirstName = (req, res) => {
 
   let sqlquery = "SELECT * FROM employees WHERE first_name = ?"
-  sqlquery = mysql.format(sqlquery, [parseInt(req.params.first_name)])
+  sqlquery = mysql.format(sqlquery, [req.params.first_name])
 
   pool.query(sqlquery, (err, results) => {
     return res.json(results)
