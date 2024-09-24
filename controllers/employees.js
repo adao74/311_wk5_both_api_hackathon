@@ -1,8 +1,8 @@
-const pool = require('../mysql/connection.js')
-const mysql = require('mysql')
+const pool = require('../mysql/connection')
+const mysql = require('mysql2')
 
 
-console.log(process.env.HOST, "asdfadsf")
+console.log(process.env.PASSWORD, "asdfadsf")
 
 const getEmployees = (req, res) => {
 
