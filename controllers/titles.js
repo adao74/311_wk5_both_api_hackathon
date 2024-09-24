@@ -28,7 +28,7 @@ const getTitlesEmployeeById = (req, res) => {
 const getTitlesByTitle = (req, res) => {
 
   let sqlquery = "SELECT * FROM titles WHERE title = ?"
-  sqlquery = mysql.format(sqlquery, [req.params.salary])
+  sqlquery = mysql.format(sqlquery, [req.params.title])
 
   pool.query(sqlquery, (err, results) => {
     return res.json(results)
