@@ -6,7 +6,7 @@ console.log(process.env.PASSWORD, "asdfadsf")
 
 const getDepartmentManager = (req, res) => {
 
-  pool.query("SELECT * FROM dept_manager;", (err, results) => {
+  pool.query("SELECT * FROM dept_manager", (err, results) => {
     console.log(results)
     if (err) console.log(err)
     return res.json(results)
@@ -16,7 +16,7 @@ const getDepartmentManager = (req, res) => {
 
 const getDepartmentManagerById = (req, res) => {
 
-  let sqlquery = "SELECT * FROM dept_manager WHERE emp_no = ?;"
+  let sqlquery = "SELECT * FROM dept_manager WHERE emp_no = ?"
   sqlquery = mysql.format(sqlquery, [parseInt(req.params.id)])
 
   pool.query(sqlquery, (err, results) => {
@@ -37,7 +37,7 @@ const getDepartmentManagerNumberById = (req, res) => {
 
 const getDepartmentManagerByFromDate = (req, res) => {
 
-    let sqlquery = "SELECT * FROM dept_manager WHERE from_date = ?;"
+    let sqlquery = "SELECT * FROM dept_manager WHERE from_date = ?"
     sqlquery = mysql.format(sqlquery, req.params.id)
   
     pool.query(sqlquery, (err, results) => {
@@ -48,7 +48,7 @@ const getDepartmentManagerByFromDate = (req, res) => {
 
   const getDepartmentManagerByToDate = (req, res) => {
 
-    let sqlquery = "SELECT * FROM dept_manager WHERE to_date = ?;"
+    let sqlquery = "SELECT * FROM dept_manager WHERE to_date = ?"
     sqlquery = mysql.format(sqlquery, req.params.id)
   
     pool.query(sqlquery, (err, results) => {

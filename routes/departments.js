@@ -4,6 +4,6 @@ const controllers = require("../controllers/departments")
 
 router.get('/', controllers.getDepartment);
 router.get('/:id', controllers.getDepartmentById);
-router.get('/:dept_name', controllers.getDepartmentByName);
+router.get('/name/:dept_name', controllers.getDepartmentByName);
 
 module.exports = router
