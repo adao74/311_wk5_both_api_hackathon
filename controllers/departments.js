@@ -17,7 +17,7 @@ const getDepartment = (req, res) => {
 const getDepartmentById = (req, res) => {
 
   let sqlquery = "SELECT * FROM departments WHERE dept_no = ?;"
-  sqlquery = mysql.format(sqlquery, [parseInt(req.params.id)])
+  sqlquery = mysql.format(sqlquery, [req.params.id])
 
   pool.query(sqlquery, (err, results) => {
     return res.json(results)
